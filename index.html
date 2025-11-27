@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flood Arrival Time Analysis - Figure Gallery</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', 'Malgun Gothic', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #2166AC 0%, #1a4d7c 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        
+        header h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .figure-card {
+            display: flex;
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .figure-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+        
+        .figure-image {
+            flex: 0 0 55%;
+            padding: 20px;
+            background: #fafafa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .figure-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .figure-description {
+            flex: 0 0 45%;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .figure-number {
+            font-size: 0.85em;
+            color: #2166AC;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+        
+        .figure-title {
+            font-size: 1.4em;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .figure-text {
+            color: #555;
+            font-size: 0.95em;
+            margin-bottom: 15px;
+        }
+        
+        .figure-details {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #2166AC;
+        }
+        
+        .figure-details h4 {
+            font-size: 0.9em;
+            color: #2166AC;
+            margin-bottom: 8px;
+        }
+        
+        .figure-details ul {
+            list-style: none;
+            font-size: 0.85em;
+            color: #666;
+        }
+        
+        .figure-details li {
+            padding: 3px 0;
+            padding-left: 15px;
+            position: relative;
+        }
+        
+        .figure-details li::before {
+            content: "•";
+            color: #2166AC;
+            position: absolute;
+            left: 0;
+        }
+        
+        .tag {
+            display: inline-block;
+            padding: 4px 10px;
+            background: #e8f4fc;
+            color: #2166AC;
+            border-radius: 15px;
+            font-size: 0.75em;
+            margin-right: 5px;
+            margin-top: 10px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #333;
+            color: #aaa;
+            font-size: 0.9em;
+        }
+        
+        @media (max-width: 900px) {
+            .figure-card {
+                flex-direction: column;
+            }
+            .figure-image, .figure-description {
+                flex: none;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Flood Arrival Time Analysis</h1>
+        <p>무심천 유역 홍수도달시간 분석 결과 시각화 | Figure Gallery</p>
+    </header>
+    
+    <div class="container">
+        
+        <!-- Figure 1 -->
+        <div class="figure-card">
+            <div class="figure-image">
+                <img src="Fig1_rainfall_pattern_ratio.png" alt="Figure 1">
+            </div>
+            <div class="figure-description">
+                <span class="figure-number">Figure 1</span>
+                <h3 class="figure-title">Distribution of Rainfall Patterns</h3>
+                <p class="figure-text">
+                    무심천 유역에서 발생한 26개의 수문 반응 사례를 동시강우와 비동시강우로 분류한 결과입니다.
+                    두 관측소(금천, 가덕) 간 강우의 피어슨 상관계수가 0.7 이상인 경우를 동시강우로 정의하였습니다.
+                </p>
+                <div class="figure-details">
+                    <h4>Key Findings</h4>
+                    <ul>
+                        <li>동시강우: 19건 (73.1%)</li>
+                        <li>비동시강우: 7건 (26.9%)</li>
+                        <li>대부분의 사례에서 유역 전반에 걸친 강우 발생</li>
+                    </ul>
+                </div>
+                <div>
+                    <span class="tag">Pie Chart</span>
+                    <span class="tag">Pattern Classification</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Figure 2 -->
+        <div class="figure-card">
+            <div class="figure-image">
+                <img src="Fig2_simultaneous_rainfall_lag.png" alt="Figure 2">
+            </div>
+            <div class="figure-description">
+                <span class="figure-number">Figure 2</span>
+                <h3 class="figure-title">Flood Arrival Time: Simultaneous Rainfall Events</h3>
+                <p class="figure-text">
+                    동시강우 사례(19건)에서 각 관측소별 홍수도달시간을 산점도로 표현한 그래프입니다.
+                    파란색 원(○)은 금천 관측소, 빨간색 삼각형(△)은 가덕 관측소의 최적 지연시간을 나타냅니다.
+                </p>
+                <div class="figure-details">
+                    <h4>Key Findings</h4>
+                    <ul>
+                        <li>금천 평균: 2.5시간, 가덕 평균: 2.9시간</li>
+                        <li>대부분의 사례에서 1~5시간 범위 내 도달</li>
+                    </ul>
+                </div>
+                <div>
+                    <span class="tag">Scatter Plot</span>
+                    <span class="tag">Simultaneous</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Figure 3 -->
+        <div class="figure-card">
+            <div class="figure-image">
+                <img src="Fig3_non_simultaneous_rainfall_lag.png" alt="Figure 3">
+            </div>
+            <div class="figure-description">
+                <span class="figure-number">Figure 3</span>
+                <h3 class="figure-title">Flood Arrival Time: Non-simultaneous Rainfall Events</h3>
+                <p class="figure-text">
+                    비동시강우 사례(7건)에서 관측소별 홍수도달시간입니다.
+                </p>
+                <div class="figure-details">
+                    <h4>Key Findings</h4>
+                    <ul>
+                        <li>금천 평균: 3.3시간, 가덕 평균: 3.3시간</li>
+                        <li>사례 9, 10에서 금천 6시간으로 최대 지연</li>
+                    </ul>
+                </div>
+                <div>
+                    <span class="tag">Scatter Plot</span>
+                    <span class="tag">Non-simultaneous</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Figure 4 -->
+        <div class="figure-card">
+            <div class="figure-image">
+                <img src="Fig4_summary_table.png" alt="Figure 4">
+            </div>
+            <div class="figure-description">
+                <span class="figure-number">Figure 4</span>
+                <h3 class="figure-title">Summary of Flood Arrival Times by Category</h3>
+                <p class="figure-text">
+                    전체 26개 사례에 대한 평균 홍수도달시간을 다양한 분류 기준으로 요약한 표입니다.
+                    강우 패턴(동시/비동시)과 주도 관측소별로 통계를 제시합니다.
+                </p>
+                <div class="figure-details">
+                    <h4>Key Findings</h4>
+                    <ul>
+                        <li>전체 평균: 금천 2.7h, 가덕 3.0h</li>
+                        <li>금천 주도 시 금천 도달시간 1.8h로 현저히 빠름</li>
+                        <li>주도 관측소 비율: 금천 46.2%, 가덕 53.8%</li>
+                    </ul>
+                </div>
+                <div>
+                    <span class="tag">Summary Table</span>
+                    <span class="tag">Statistics</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Figure 5 -->
+        <div class="figure-card">
+            <div class="figure-image">
+                <img src="Fig5_boxplot_arrival_time.png" alt="Figure 5">
+            </div>
+            <div class="figure-description">
+                <span class="figure-number">Figure 5</span>
+                <h3 class="figure-title">Flood Arrival Time Distribution (Box Plot)</h3>
+                <p class="figure-text">
+                    홍수도달시간의 분포를 박스플롯으로 시각화하였습니다.
+                    각 박스는 중앙값, 사분위수, 이상치를 보여주어 데이터의 분포 특성을 파악할 수 있습니다.
+                </p>
+                <div class="figure-details">
+                    <h4>Key Findings</h4>
+                    <ul>
+                        <li><strong>금천이 전반적으로 빠른 도달시간</strong> (중앙값: 동시 2h, 비동시 3h)</li>
+                        <li>비동시강우 금천에서 가장 넓은 분포 (IQR=5, 범위 1~6시간)</li>
+                        <li>비동시강우 가덕에서 가장 좁은 분포 (IQR=2, 대부분 4시간)</li>
+                        <li>동시강우 가덕에서 이상치 발생 (사례22: 9시간)</li>
+                    </ul>
+                </div>
+                <div>
+                    <span class="tag">Box Plot</span>
+                    <span class="tag">Distribution</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Figure 6 -->
+        <div class="figure-card" style="border: 3px solid #B2182B;">
+            <div class="figure-image">
+                <img src="Fig6_violin_arrival_time.png" alt="Figure 6">
+            </div>
+            <div class="figure-description">
+                <span class="figure-number" style="color: #B2182B;">★ Figure 6 - Key Insight</span>
+                <h3 class="figure-title">Distribution of Flood Arrival Times (Violin Plot)</h3>
+                <p class="figure-text">
+                    바이올린 플롯은 박스플롯에 밀도 분포를 결합한 그래프입니다.
+                    강우 패턴에 따라 <strong>주도 관측소가 달라지는 현상</strong>이 관찰됩니다.
+                </p>
+                <div class="figure-details" style="background: #fff3f3; border-left-color: #B2182B;">
+                    <h4 style="color: #B2182B;">🔥 Critical Finding</h4>
+                    <ul>
+                        <li><strong style="color: #B2182B;">동시강우: 가덕의 도달시간이 더 짧음</strong></li>
+                        <li><strong style="color: #2166AC;">비동시강우: 금천의 도달시간이 더 짧음</strong></li>
+                    </ul>
+                </div>
+                <div class="figure-details" style="margin-top: 15px;">
+                    <h4>해석 (Interpretation)</h4>
+                    <ul>
+                        <li><strong>비동시강우 (국지성 소나기/집중호우)</strong>: 짧은 시간 강한 강우 → 금천(상류)의 급격한 반응이 수위에 더 큰 영향</li>
+                        <li><strong>동시강우 (광역 강우/꾸준한 비)</strong>: 유역 전체에 비슷한 강우 → 가덕(하류)의 lag time이 수위 변화에 더 직접적 영향</li>
+                    </ul>
+                </div>
+                <div class="figure-details" style="margin-top: 15px; background: #e8f4fc;">
+                    <h4>모델 적용 시사점</h4>
+                    <ul>
+                        <li>동시강우 예측 시 → 가덕 관측소 데이터에 가중치 부여</li>
+                        <li>비동시강우/소나기 예측 시 → 금천 관측소 데이터에 가중치 부여</li>
+                    </ul>
+                </div>
+                <div>
+                    <span class="tag" style="background: #B2182B; color: white;">★ Key Insight</span>
+                    <span class="tag">Violin Plot</span>
+                    <span class="tag">Density</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Figure 7 -->
+        <div class="figure-card">
+            <div class="figure-image">
+                <img src="Fig7_heatmap_correlation.png" alt="Figure 7">
+            </div>
+            <div class="figure-description">
+                <span class="figure-number">Figure 7</span>
+                <h3 class="figure-title">Cross-correlation Coefficients (Heatmap)</h3>
+                <p class="figure-text">
+                    26개 사례별로 금천-수위, 가덕-수위 간 교차상관계수를 히트맵으로 표현하였습니다.
+                    색상이 진할수록(빨간색) 높은 상관관계를 의미합니다.
+                </p>
+                <div class="figure-details">
+                    <h4>Key Findings</h4>
+                    <ul>
+                        <li>상관계수 범위: 0.34 ~ 0.82</li>
+                        <li>사례 18, 26에서 두 관측소 모두 0.8 이상</li>
+                        <li>일부 사례에서 관측소 간 상관계수 차이 큼</li>
+                    </ul>
+                </div>
+                <div>
+                    <span class="tag">Heatmap</span>
+                    <span class="tag">Correlation</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Figure 8 -->
+        <div class="figure-card">
+            <div class="figure-image">
+                <img src="Fig8_barplot_mean_comparison.png" alt="Figure 8">
+            </div>
+            <div class="figure-description">
+                <span class="figure-number">Figure 8</span>
+                <h3 class="figure-title">Mean Flood Arrival Time by Category (Bar Plot)</h3>
+                <p class="figure-text">
+                    다양한 분류 기준에 따른 평균 홍수도달시간을 막대그래프로 비교합니다.
+                    관측소별 차이와 강우 패턴별 차이를 한눈에 파악할 수 있습니다.
+                </p>
+                <div class="figure-details">
+                    <h4>Key Findings</h4>
+                    <ul>
+                        <li>동시강우가 비동시강우보다 평균 도달시간 짧음</li>
+                        <li>금천 주도 시 금천 도달시간 현저히 감소</li>
+                        <li>전체적으로 금천이 가덕보다 빠른 반응</li>
+                    </ul>
+                </div>
+                <div>
+                    <span class="tag">Bar Plot</span>
+                    <span class="tag">Comparison</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Figure 9 -->
+        <div class="figure-card">
+            <div class="figure-image">
+                <img src="Fig9_timeseries_annual_trend.png" alt="Figure 9">
+            </div>
+            <div class="figure-description">
+                <span class="figure-number">Figure 9</span>
+                <h3 class="figure-title">Annual Trend of Flood Arrival Times</h3>
+                <p class="figure-text">
+                    연도별 평균 홍수도달시간의 추세를 시계열 그래프로 표현하였습니다.
+                    각 연도별 사례 수(n)도 함께 표기되어 있습니다.
+                </p>
+                <div class="figure-details">
+                    <h4>Key Findings</h4>
+                    <ul>
+                        <li>2016~2023년 기간 중 사례 발생</li>
+                        <li>2023년 사례 수가 가장 많음 (n=8)</li>
+                        <li>연도별 변동이 있으나 뚜렷한 장기 추세는 미확인</li>
+                    </ul>
+                </div>
+                <div>
+                    <span class="tag">Time Series</span>
+                    <span class="tag">Annual Trend</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bonus Figure -->
+        <div class="figure-card">
+            <div class="figure-image">
+                <img src="Fig_bonus_correlation_scatter.png" alt="Bonus Figure">
+            </div>
+            <div class="figure-description">
+                <span class="figure-number">Bonus</span>
+                <h3 class="figure-title">Cross-correlation Comparison (Scatter Plot)</h3>
+                <p class="figure-text">
+                    금천과 가덕의 교차상관계수를 산점도로 비교합니다.
+                    대각선(점선)은 두 관측소의 상관계수가 동일한 지점을 나타냅니다.
+                </p>
+                <div class="figure-details">
+                    <h4>Key Findings</h4>
+                    <ul>
+                        <li>대각선 위: 가덕 상관계수가 더 높음</li>
+                        <li>대각선 아래: 금천 상관계수가 더 높음</li>
+                        <li>주도 관측소 결정의 근거 시각화</li>
+                    </ul>
+                </div>
+                <div>
+                    <span class="tag">Scatter Plot</span>
+                    <span class="tag">Dominant Station</span>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+    <footer>
+        <p>Flood Arrival Time Analysis | Musimcheon Basin | 2024-11-27</p>
+    </footer>
+</body>
+</html>
+
